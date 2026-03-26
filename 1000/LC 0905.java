@@ -1,0 +1,44 @@
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int n = nums.length;
+        int[] newnums = new int[n];
+        int left = 0, right = n - 1;
+        for(int i = 0; i < n; i++)
+        {
+            int num = nums[i];
+            if(num % 2 == 0)
+            {
+                newnums[left++] = num;
+            }
+            else
+            {
+                newnums[right--] = num;
+            }
+        }
+        return newnums;
+    }
+}
+/**
+//原地交换
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            while (left < right && nums[left] % 2 == 0) {
+                left++;
+            }
+            while (left < right && nums[right] % 2 == 1) {
+                right--;
+            }
+            if (left < right) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return nums;
+    }
+}
+*/
