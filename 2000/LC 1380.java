@@ -1,0 +1,60 @@
+class Solution {
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        List<Integer> list = new ArrayList<>();
+        for(int i = 0; i < m; i++){
+            int min = matrix[i][0];
+            int minindex = 0;
+            for(int j = 0; j < n; j++){
+                if(matrix[i][j] < min){
+                    min = matrix[i][j];
+                    minindex = j;
+                }
+            }
+            int max = min, k = 0;
+            for(k = 0; k < m; k++)
+            {
+                if(matrix[k][minindex] > max){
+                    break;
+                }
+            }
+            if(k == m){
+                list.add(max);
+            }
+        }
+        return list;
+    }
+}
+
+/**
+//如果幸运数只存在一个：
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        List<Integer> ret = new ArrayList<Integer>();
+        int m = matrix.length, n = matrix[0].length;
+        int rowMax = 0, k = 0;
+        for (int i = 0; i < m; i++) {
+            int curMin = matrix[i][0];
+            int c = 0;
+            for (int j = 1; j < n; j++) {
+                if (curMin > matrix[i][j]) {
+                    curMin = matrix[i][j];
+                    c = j;
+                }
+            }
+            if (rowMax < curMin) {
+                rowMax = curMin;
+                k = c;
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            if (rowMax < matrix[i][k]) {
+                return ret;
+            }
+        }
+        ret.add(rowMax);
+        return ret;
+    }
+}
+
+*/
