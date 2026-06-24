@@ -1,0 +1,49 @@
+cd D:\github\LeetCode
+
+git remote add origin https://github.com/123lxm456/LeetCode.git
+
+
+# 1. 进入仓库根目录（不是1000文件夹！）
+cd D:\github\LeetCode
+
+# 2. 先拉取远程最新代码
+git pull origin main
+
+# 3. 添加更改（可以指定1000文件夹）
+git add 2000/
+
+# 一键添加所有更改（替代指定1000/）
+git add .
+
+# 4. 提交
+git commit -m "Add new problems in the 2000 folder"
+
+# 5. 推送
+git push origin main
+
+
+
+
+
+添加新文件夹：
+
+# 1. 进入仓库根目录
+cd D:\github\LeetCode
+
+# 2. 拉取远程最新代码（确保是最新状态）
+git pull origin main
+
+# 3. 创建 2000 文件夹
+mkdir 2000
+
+# 4.
+New-Item -Path "2000\.gitkeep" -ItemType File -Force
+
+# 5. 添加更改
+git add 2000/
+
+# 6. 提交
+git commit -m "Add 2000 folder for problems 2000-2999"
+
+# 7. 推送
+git push origin main
